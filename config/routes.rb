@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "monsters", to: "monsters#index"
+  get "monsters/:id", to: "monsters#show", as: "monster"
   devise_for :users
   root to: "home#index"
 

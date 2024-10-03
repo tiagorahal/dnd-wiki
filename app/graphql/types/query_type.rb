@@ -18,8 +18,8 @@ module Types
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :fetch_monsters, resolver: Queries::FetchMonsters
+    field :fetch_monster, resolver: Queries::FetchMonster
 
     # TODO: remove me
     field :test_field, String, null: false,
