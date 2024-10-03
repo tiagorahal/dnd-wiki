@@ -1,10 +1,108 @@
-<h1>Welcome to My App</h1>
+<div class="min-h-screen flex flex-col items-center justify-center bg-[#3b3a30] text-[#faf8ef]">
+  <h1 class="text-4xl font-bold mb-10 text-[#b3c100]">Welcome to the D&D Wiki</h1>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl p-6">
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Ability Scores</h2>
+      <ul>
+        <% @ability_scores['results'].each do |ability| %>
+          <li><%= ability['name'] %></li>
+        <% end %>
+      </ul>
+    </div>
 
-<% if user_signed_in? %>
-  <p>Hello, <%= current_user.email %>! You are logged in.</p>
-  <%= link_to 'Edit Profile', edit_user_registration_path %> |
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Sign up', new_user_registration_path %> |
-  <%= link_to 'Login', new_user_session_path %>
-<% end %>
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Alignments</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Backgrounds</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Classes</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Conditions</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Damage Types</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Equipment</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Equipment Categories</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Feats</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Features</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Languages</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Magic Items</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Magic Schools</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Monsters</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Proficiencies</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Races</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Rule Sections</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Rules</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Skills</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Spells</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Subclasses</h2>
+      <p class="text-[#faf8ef]">Inside Classes</p>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Subraces</h2>
+      <p class="text-[#faf8ef]">Inside Races</p>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Traits</h2>
+    </div>
+
+    <div class="bg-[#7d5a50] p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold">Weapon Properties</h2>
+    </div>
+  </div>
+</div>

@@ -73,3 +73,4 @@ gem 'graphql-batch', '~> 0.6.0'
 gem "graphiql-rails", group: :development
 
 gem 'devise', '~> 4.2'
+gem 'httparty', '~> 0.18.0'
