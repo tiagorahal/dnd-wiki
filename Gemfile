@@ -74,3 +74,5 @@ gem "graphiql-rails", group: :development
 
 gem 'devise', '~> 4.2'
 gem 'httparty', '~> 0.18.0'
+
+gem 'kaminari', '~> 1.2', '>= 1.2.2'

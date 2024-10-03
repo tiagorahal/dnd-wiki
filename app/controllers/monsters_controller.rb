@@ -1,6 +1,9 @@
 class MonstersController < ApplicationController
   def index
-    @monsters = Monsters::ListService.call
+    page = params[:page] || 1
+    response = Monsters::ListService.call(page)
+    @monsters = response[:monsters]
+    @pagination = response[:pagination]
   end
 
   def show
