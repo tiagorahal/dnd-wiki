@@ -1,6 +1,7 @@
-<div class="flex justify-center mb-4">
+<div class="flex justify-center mb-4 space-x-4">
   <%= link_to "Sort by Name", monsters_path(sort: @current_sort_order == 'asc' ? 'desc' : 'asc', page: params[:page]), class: 'bg-[#b3c100] text-[#3b3a30] py-2 px-4 rounded-lg font-bold hover:bg-[#a3b100] transition' %>
 </div>
+
 
 <div class="pagination mb-4 text-lg flex justify-center space-x-2">
   <%= paginate @pagination, 
@@ -13,12 +14,12 @@
   <% @monsters.each do |monster| %>
     <div class="bg-[#3b3a30] p-4 rounded-lg shadow-md flex flex-col justify-between">
       <div class="w-full h-48 bg-gray-200 rounded-md mb-4 overflow-hidden">
-      <% if monster[:image] && monster[:image] != "https://www.dnd5eapi.co"  %>
-        <%= image_tag monster[:image], alt: "#{monster[:name]}", class: "w-full h-full object-cover object-top rounded-md" %>
-      <% else %>
-        <%= image_tag asset_path('dndtemplate.webp'), alt: "No Image Available", class: "w-full h-full object-cover object-top rounded-md" %>
-      <% end %>
-    </div>
+        <% if monster[:image].present? %>
+          <%= image_tag monster[:image], alt: "#{monster[:name]}", class: "w-full h-full object-cover object-top rounded-md" %>
+        <% else %>
+          <%= image_tag asset_path('dndtemplate.webp'), alt: "No Image Available", class: "w-full h-full object-cover object-top rounded-md" %>
+        <% end %>
+      </div>
 
       <div class="flex flex-col flex-grow justify-between">
         <div>
@@ -30,6 +31,7 @@
     </div>
   <% end %>
 </div>
+
 
 <div class="pagination mt-8 text-lg flex justify-center space-x-2">
   <%= paginate @pagination, 
