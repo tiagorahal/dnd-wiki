@@ -8,7 +8,11 @@ class MonstersController < ApplicationController
 
   def show
     monster_index = params[:id]
-
+  
     @monster = Monsters::ShowService.call(monster_index)
+    if @monster.nil?
+      flash[:alert] = "Unable to fetch monster details at this time. Please try again later."
+      redirect_to monsters_path
+    end
   end
 end

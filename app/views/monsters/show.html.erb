@@ -1,3 +1,96 @@
-<h2><%= @monster['name'] %></h2>
-<p><%= @monster['desc'] %></p>
-<img src="<%= @monster['image'] %>" alt="<%= @monster['name'] %>">
+<h1 class="text-3xl font-bold mb-4"><%= @monster[:name] %></h1>
+
+<div class="w-full mb-4">
+  <%= image_tag @monster[:image], alt: @monster[:name], class: 'w-full h-64 object-cover rounded-lg' %>
+</div>
+
+<table class="min-w-full table-auto bg-[#3b3a30] text-[#faf8ef]">
+  <tbody>
+    <tr>
+      <td class="px-4 py-2 border-b">Name</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:name] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Description</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:desc] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Size</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:size] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Type</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:type] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Subtype</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:subtype] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Alignment</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:alignment] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Hit Points</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:hit_points] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Armor Class</td>
+      <td class="px-4 py-2 border-b">
+        <%= @monster[:armor_class] || "No armor class available" %>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Challenge Rating</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:challenge_rating] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Speed (Walk)</td>
+      <td class="px-4 py-2 border-b"><%= @monster.dig(:speed, 'walk') %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Proficiencies</td>
+      <td class="px-4 py-2 border-b">
+        <% if @monster[:proficiencies].any? %>
+          <% @monster[:proficiencies].each do |prof| %>
+            <div><%= prof['proficiency']['name'] %> (Value: <%= prof['value'] %>)</div>
+          <% end %>
+        <% else %>
+          <div>No proficiencies available</div>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Senses</td>
+      <td class="px-4 py-2 border-b">Passive Perception: <%= @monster.dig(:senses, 'passive_perception') %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Languages</td>
+      <td class="px-4 py-2 border-b"><%= @monster[:languages] %></td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Special Abilities</td>
+      <td class="px-4 py-2 border-b">
+        <% if @monster[:special_abilities].any? %>
+          <% @monster[:special_abilities].each do |ability| %>
+            <div><strong><%= ability['name'] %>:</strong> <%= ability['desc'] %></div>
+          <% end %>
+        <% else %>
+          <div>No special abilities available</div>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="px-4 py-2 border-b">Actions</td>
+      <td class="px-4 py-2 border-b">
+        <% if @monster[:actions].any? %>
+          <% @monster[:actions].each do |action| %>
+            <div><strong><%= action['name'] %>:</strong> <%= action['desc'] %></div>
+          <% end %>
+        <% else %>
+          <div>No actions available</div>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
