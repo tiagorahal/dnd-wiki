@@ -1,3 +1,14 @@
+<div class="flex justify-center mb-4">
+  <%= link_to "Sort by Name", monsters_path(sort: @current_sort_order == 'asc' ? 'desc' : 'asc', page: params[:page]), class: 'bg-[#b3c100] text-[#3b3a30] py-2 px-4 rounded-lg font-bold hover:bg-[#a3b100] transition' %>
+</div>
+
+<div class="pagination mb-4 text-lg flex justify-center space-x-2">
+  <%= paginate @pagination, 
+      page_links: true, 
+      container: false, 
+      class: 'inline-flex rounded-md shadow' %>
+</div>
+
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
   <% @monsters.each do |monster| %>
     <div class="bg-[#3b3a30] p-4 rounded-lg shadow-md flex flex-col justify-between">
@@ -13,7 +24,6 @@
         <div>
           <h3 class="text-[#faf8ef] text-xl font-bold mb-2"><%= monster[:name] %></h3>
           <p class="text-[#b2b27c] mb-2">Type: <%= monster[:type] %></p>
-          <p class="text-[#b3c100] mb-4">Alignment: <%= monster[:alignment] %></p>
         </div>
         <%= link_to 'View Details', monster_path(monster[:index]), class: 'bg-[#b3c100] text-[#3b3a30] py-2 px-4 rounded-lg font-bold hover:bg-[#a3b100] transition mt-auto' %>
       </div>

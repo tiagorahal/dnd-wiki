@@ -1,9 +1,12 @@
 class MonstersController < ApplicationController
   def index
     page = params[:page] || 1
-    response = Monsters::ListService.call(page)
+    sort_order = params[:sort] || 'asc'
+
+    response = Monsters::ListService.call(page, sort_order)
     @monsters = response[:monsters]
     @pagination = response[:pagination]
+    @current_sort_order = sort_order
   end
 
   def show
